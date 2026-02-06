@@ -2,6 +2,7 @@ import {
     Award,
     FileText,
     LayoutDashboard,
+    LayoutGrid,
     LogOut,
     Settings,
     Ticket,
