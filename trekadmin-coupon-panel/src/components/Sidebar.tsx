@@ -1,15 +1,14 @@
-import React from 'react';
-import { 
-  LayoutDashboard, 
-  Ticket, 
-  Users, 
-  Award, 
-  Zap, 
-  Settings, 
-  FileText, 
-  LogOut,
-  TentTree
+import {
+    Award,
+    FileText,
+    LayoutDashboard,
+    LogOut,
+    Settings,
+    Ticket,
+    Users,
+    Zap
 } from 'lucide-react';
+import React from 'react';
 import { NavItem } from '../types';
 
 interface SidebarProps {
@@ -46,6 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => {
     { id: 'special', label: 'Special Deals', icon: Zap, view: 'MANAGE_SPECIAL' },
     { id: 'premium', label: 'Premium Elite', icon: Award, view: 'MANAGE_PREMIUM' },
     { id: 'influencer', label: 'Influencers', icon: Users, view: 'MANAGE_INFLUENCER' },
+    { id: 'discovery', label: 'Discovery Manager', icon: LayoutGrid, view: 'DISCOVERY_MANAGER' },
   ];
 
   const systemItems: NavItem[] = [

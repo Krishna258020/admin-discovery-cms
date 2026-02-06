@@ -1,30 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+    auditApi,
+    badgeApi,
+    commissionApi,
+    couponApi, redemptionApi,
+    vendorApi,
+    withdrawalApi
+} from './api';
+import AuditLogs from './components/AuditLogs';
+import BadgeDetailView from './components/BadgeDetailView';
 import BadgeMaster from './components/BadgeMaster';
-import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
+import BadgeModel from './components/BadgeModel';
+import ConfirmationModal from './components/ConfirmationModal';
+import CouponDetailView from './components/CouponDetailView';
 import CouponList from './components/CouponList';
 import CouponModal from './components/CouponModal';
-import CouponDetailView from './components/CouponDetailView';
+import Dashboard from './components/Dashboard';
 import RedemptionHistoryView from './components/RedemptionHistoryView';
-import VendorRequests from './components/VendorRequests';
-import AuditLogs from './components/AuditLogs';
 import Settings from './components/Settings';
-import ConfirmationModal from './components/ConfirmationModal';
-import BadgeModel from './components/BadgeModel';
-import BadgeDetailView from './components/BadgeDetailView';
+import Sidebar from './components/Sidebar';
+import VendorRequests from './components/VendorRequests';
 import {
-  DEFAULT_DISCOUNT_MODES
+    DEFAULT_DISCOUNT_MODES
 } from './constants';
 import {
-  Badge, Coupon, WithdrawalRequest, CommissionLog, CouponScope, CouponStatus, AuditLog, VendorRequest,
-  DiscountModeConfig, ConfirmationState, Redemption,
-  DashboardStats, TrendDataPoint, CommissionStatus,
-  TimeFilter, TargetType, PayoutBatch
+    AuditLog,
+    Badge,
+    CommissionLog,
+    ConfirmationState,
+    Coupon,
+    CouponScope, CouponStatus,
+    DashboardStats,
+    DiscountModeConfig,
+    Redemption,
+    TargetType,
+    TimeFilter,
+    TrendDataPoint,
+    VendorRequest,
+    WithdrawalRequest
 } from './types';
-import {
-  couponApi, redemptionApi, withdrawalApi, commissionApi, vendorApi, badgeApi, auditApi, dashboardApi
-} from './api';
-import { Ticket, FileText } from 'lucide-react';
 
 const isWednesday = () => new Date().getDay() === 3;
 
@@ -51,7 +65,7 @@ const loadPublicWithdrawalRequests = (): WithdrawalRequest[] => {
   }
 };
 
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import CouponRedirect from './CouponRedirect';
 
 const App: React.FC = () => {
@@ -411,6 +425,7 @@ const App: React.FC = () => {
       );
     if (currentView === 'SYSTEM_AUDIT') return <AuditLogs logs={auditLogs} />;
     if (currentView === 'SYSTEM_SETTINGS') return <Settings discountModes={discountModes} onUpdateModes={setDiscountModes} />;
+    if (currentView === 'DISCOVERY_MANAGER') return <DiscoveryManager />;
 
     // CHANGED: Use viewingCoupon from derived state (found by ID) to ensure live data
     if (viewingCoupon)
