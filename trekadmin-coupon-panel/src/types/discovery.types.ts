@@ -51,6 +51,7 @@ export interface DiscoveryContent {
   longDescription: string;
   coverImage: string;
   bannerImage: string;
+  thumbnailImage?: string; // For mobile app cards
   ctaText: string;
   ctaLink: string;
   status: Status;
@@ -59,6 +60,29 @@ export interface DiscoveryContent {
   visibility: boolean;
   priorityOrder: number;
   category: 'WhatsNew' | 'TopTreks' | 'TrekShorts';
+  
+  // Image dimensions for mobile app
+  imageDimensions?: {
+    coverWidth: number;
+    coverHeight: number;
+    bannerWidth: number;
+    bannerHeight: number;
+    thumbnailWidth?: number;
+    thumbnailHeight?: number;
+  };
+  
+  // Card styling for mobile app
+  cardStyle?: {
+    backgroundColor: string;
+    textColor: string;
+    accentColor: string;
+    borderRadius: number;
+  };
+  
+  // Additional metadata
+  viewCount?: number;
+  tags?: string[];
+  featured?: boolean;
 }
 
 // -- Forecast Models --

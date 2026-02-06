@@ -6,7 +6,7 @@ import {
 import React, { useMemo, useState } from 'react';
 import { MOCK_CONTENT, MOCK_THEMES } from '../constants/discovery.constants';
 import { Status } from '../types/discovery.types';
-import { ContentManager } from './discovery/ContentManager';
+import { ContentManagerEnhanced } from './discovery/ContentManagerEnhanced';
 import { ForecastManager } from './discovery/ForecastManager';
 import { ThemeManager } from './discovery/ThemeManager';
 
@@ -26,9 +26,9 @@ const DiscoveryManager: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'THEMES': return <ThemeManager />;
-      case 'WHATS_NEW': return <ContentManager category="WhatsNew" title="What's New" />;
-      case 'TOP_TREKS': return <ContentManager category="TopTreks" title="Top Treks" />;
-      case 'SHORTS': return <ContentManager category="TrekShorts" title="Trek Shorts" />;
+      case 'WHATS_NEW': return <ContentManagerEnhanced category="WhatsNew" title="What's New" />;
+      case 'TOP_TREKS': return <ContentManagerEnhanced category="TopTreks" title="Top Treks" />;
+      case 'SHORTS': return <ContentManagerEnhanced category="TrekShorts" title="Trek Shorts" />;
       case 'FORECAST': return <ForecastManager />;
       default: return <ThemeManager />;
     }
