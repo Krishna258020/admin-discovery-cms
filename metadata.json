@@ -1,0 +1,5 @@
+{
+  "name": "TrekAdmin Discovery CMS",
+  "description": "Internal CMS for managing Discovery Content, Seasonal Forecasts, and Global Home Page Theming.",
+  "requestFramePermissions": []
+}
