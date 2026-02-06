@@ -16,6 +16,7 @@ import CouponDetailView from './components/CouponDetailView';
 import CouponList from './components/CouponList';
 import CouponModal from './components/CouponModal';
 import Dashboard from './components/Dashboard';
+import DiscoveryManager from './components/DiscoveryManager';
 import RedemptionHistoryView from './components/RedemptionHistoryView';
 import Settings from './components/Settings';
 import Sidebar from './components/Sidebar';
