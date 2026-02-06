@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import { DiscoveryContent, Status } from '../types';
-import { MOCK_CONTENT } from '../constants';
-import { 
-  Plus, Search, Filter, MoreHorizontal, Clock, Image, ChevronDown, Edit2, Trash2
+import {
+    ChevronDown,
+    Clock,
+    Edit2,
+    Plus, Search,
+    Trash2
 } from 'lucide-react';
+import React, { useState } from 'react';
+import { MOCK_CONTENT } from '../constants';
+import { DiscoveryContent, Status } from '../types';
 
 interface Props {
   category: 'WhatsNew' | 'TopTreks' | 'TrekShorts';
@@ -11,11 +15,11 @@ interface Props {
 }
 
 export const ContentManager: React.FC<Props> = ({ category, title }) => {
-  const [contents, setContents] = useState<DiscoveryContent[]>(
+  const [contents] = useState<DiscoveryContent[]>(
     MOCK_CONTENT.filter(c => c.category === category)
   );
   const [view, setView] = useState<'LIST' | 'FORM'>('LIST');
-  const [formData, setFormData] = useState<Partial<DiscoveryContent>>({});
+  const [, setFormData] = useState<Partial<DiscoveryContent>>({});
 
   const handleCreate = () => {
     setFormData({ category, status: Status.DRAFT, visibility: true });

@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { TrekForecast, Status } from '../types';
-import { MOCK_FORECASTS } from '../constants';
-import { 
-  CloudRain, Sun, Snowflake, Wind, Leaf, Plus, MapPin, Search, ChevronDown, Edit2 
+import {
+    ChevronDown,
+    CloudRain,
+    Edit2,
+    Leaf,
+    MapPin,
+    Plus,
+    Search,
+    Snowflake,
+    Sun
 } from 'lucide-react';
+import React, { useState } from 'react';
+import { MOCK_FORECASTS } from '../constants';
+import { Status, TrekForecast } from '../types';
 
 export const ForecastManager: React.FC = () => {
-  const [forecasts, setForecasts] = useState<TrekForecast[]>(MOCK_FORECASTS);
+  const [forecasts] = useState<TrekForecast[]>(MOCK_FORECASTS);
   const [isEditing, setIsEditing] = useState(false);
 
   const SeasonIcon = ({ season }: { season?: string }) => {

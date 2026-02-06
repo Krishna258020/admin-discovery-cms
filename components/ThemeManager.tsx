@@ -1,26 +1,18 @@
-import React, { useState, useMemo } from 'react';
-import { HomeTheme, ThemeType, Status, ThemeConfig } from '../types';
-import { MOCK_THEMES } from '../constants';
-import { 
-  Plus, Calendar, Layout, 
-  Palette, Image as ImageIcon, Edit2, Archive, Search, ChevronDown, ChevronLeft, ChevronRight
+import {
+    Archive,
+    ChevronDown,
+    Edit2,
+    Plus,
+    Search
 } from 'lucide-react';
+import React, { useState } from 'react';
+import { MOCK_THEMES } from '../constants';
+import { HomeTheme, Status, ThemeType } from '../types';
 
 export const ThemeManager: React.FC = () => {
   const [themes, setThemes] = useState<HomeTheme[]>(MOCK_THEMES);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [currentTheme, setCurrentTheme] = useState<Partial<HomeTheme> | null>(null);
-
-  // Logic to determine the CURRENTLY ACTIVE theme
-  const activeSystemThemeId = useMemo(() => {
-    const today = new Date().toISOString().split('T')[0];
-    const activeCandidates = themes.filter(t => 
-      t.status === Status.ACTIVE || 
-      (t.status === Status.SCHEDULED && t.startDate <= today && t.endDate >= today)
-    );
-    if (activeCandidates.length === 0) return null;
-    return activeCandidates.sort((a, b) => b.priority - a.priority)[0].id;
-  }, [themes]);
 
   const handleCreateNew = () => {
     setCurrentTheme({
@@ -215,9 +207,7 @@ export const ThemeManager: React.FC = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {themes.map(theme => {
-              const isActive = activeSystemThemeId === theme.id;
-              return (
+            {themes.map(theme => (
                 <tr key={theme.id} className="hover:bg-slate-50 transition-colors bg-white">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
@@ -272,8 +262,7 @@ export const ThemeManager: React.FC = () => {
                     </div>
                   </td>
                 </tr>
-              );
-            })}
+            ))}
           </tbody>
         </table>
       </div>

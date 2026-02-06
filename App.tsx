@@ -1,13 +1,20 @@
-import React, { useState, useMemo } from 'react';
-import { 
-  Layout, Compass, TrendingUp, Video, CloudSun, Layers, 
-  Users, Ticket, Award, Zap, Bell, Search, LayoutGrid
+import {
+    Award,
+    Bell,
+    Compass,
+    Layout,
+    LayoutGrid,
+    Ticket,
+    TrendingUp,
+    Users,
+    Zap
 } from 'lucide-react';
-import { TabView, Status } from './types';
-import { ThemeManager } from './components/ThemeManager';
+import React, { useMemo, useState } from 'react';
 import { ContentManager } from './components/ContentManager';
 import { ForecastManager } from './components/ForecastManager';
-import { MOCK_THEMES, MOCK_CONTENT } from './constants';
+import { ThemeManager } from './components/ThemeManager';
+import { MOCK_CONTENT, MOCK_THEMES } from './constants';
+import { Status, TabView } from './types';
 
 // --- Components ---
 
