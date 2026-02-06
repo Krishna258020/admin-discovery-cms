@@ -1,4 +1,4 @@
-import { HomeTheme, ThemeType, Status, DiscoveryContent, TrekForecast, Season } from './types';
+import { DiscoveryContent, HomeTheme, Season, Status, ThemeType, TrekForecast } from '../types/discovery.types';
 
 // -- Mock Themes --
 export const MOCK_THEMES: HomeTheme[] = [
